@@ -41,6 +41,13 @@ public class AddEmployeeServlet extends HttpServlet {
         emp.setPhone(phone);
         employeeList.add(emp);
         req.getSession().setAttribute("oper", "success");
+    }
 
+    public ArrayList<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(ArrayList<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 }
