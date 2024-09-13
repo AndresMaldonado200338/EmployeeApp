@@ -11,7 +11,7 @@
     <body>
         <div class="topnav">
             <a href="#">Crear empleado</a>
-            <a href="#">Modificar empleado</a>
+            <a href="modifyEmployee.jsp">Modificar empleado</a>
             <a href="#">Borrar Empleado</a>
         </div>
 
