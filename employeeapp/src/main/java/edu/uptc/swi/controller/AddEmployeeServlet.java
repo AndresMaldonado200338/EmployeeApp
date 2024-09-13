@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/addEmployee")
+@WebServlet("/AddEmployee")
 public class AddEmployeeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     ArrayList<Employee> employeeList = new ArrayList<Employee>();
