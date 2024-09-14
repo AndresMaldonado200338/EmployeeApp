@@ -12,12 +12,12 @@
         <div class="topnav">
             <a href="./">Crear empleado</a>
             <a href="./modifyEmployee.jsp">Modificar empleado</a>
-            <a href="#">Borrar Empleado</a>
+            <a href="./deleteEmployee.jsp">Borrar Empleado</a>
         </div>
 
         <div class="content">
             <h1> EMPLOYEE APP</h1>
-            <h2> Hola, por favor ingrese los datos del usuario </h2>
+            <h2> Hola, por favor ingrese los datos del usuario</h2>
             <form action="AddEmployee" method="post">
                 <table cellspacing="3" cellpadding="3" border="1">
                     <tr>
