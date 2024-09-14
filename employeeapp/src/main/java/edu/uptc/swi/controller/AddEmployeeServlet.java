@@ -14,9 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public class AddEmployeeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    // No es necesario que esta sea una instancia de clase, lo obtendremos del
-    // contexto.
-    // private ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
     public AddEmployeeServlet() {
         super();

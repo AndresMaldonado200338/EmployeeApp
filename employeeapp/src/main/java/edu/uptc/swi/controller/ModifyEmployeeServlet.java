@@ -80,6 +80,6 @@ public class ModifyEmployeeServlet extends HttpServlet {
         } else {
             req.getSession().setAttribute("oper", "error");
         }
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect("./");
     }
 }
