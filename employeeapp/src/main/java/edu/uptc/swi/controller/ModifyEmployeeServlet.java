@@ -14,21 +14,24 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/ModifyEmployee")
 public class ModifyEmployeeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    
-    private ArrayList<Employee> employeeList = new ArrayList<>();
 
     public ModifyEmployeeServlet() {
         super();
     }
 
-    @Override
-    public void init() throws ServletException {
-        employeeList.add(new Employee("1", "Juan Perez", "juan.p@gmail.com", "123456789"));
-        employeeList.add(new Employee("2", "Carla Suarez", "jcarla.s@gmail.com", "987654321"));
+    public void init() {
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Obtener la lista de empleados del contexto de la aplicación
+        ArrayList<Employee> employeeList = (ArrayList<Employee>) getServletContext().getAttribute("employeeList");
+
+        if (employeeList == null) {
+            resp.sendRedirect("index.jsp?error=No employees found");
+            return;
+        }
+
         String id = req.getParameter("id");
         if (id != null) {
             Optional<Employee> employeeOpt = employeeList.stream().filter(emp -> emp.getId().equals(id)).findFirst();
@@ -45,6 +48,13 @@ public class ModifyEmployeeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ArrayList<Employee> employeeList = (ArrayList<Employee>) getServletContext().getAttribute("employeeList");
+
+        if (employeeList == null) {
+            resp.sendRedirect("index.jsp?error=No employees found");
+            return;
+        }
+
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String email = req.getParameter("email");
@@ -58,6 +68,12 @@ public class ModifyEmployeeServlet extends HttpServlet {
                 emp.setEmail(email);
                 emp.setPhone(phone);
                 req.getSession().setAttribute("oper", "success");
+
+                System.out.println("Lista de empleados después de la modificación:");
+                for (Employee employee : employeeList) {
+                    System.out.println(employee);
+                }
+                
             } else {
                 req.getSession().setAttribute("oper", "error");
             }
